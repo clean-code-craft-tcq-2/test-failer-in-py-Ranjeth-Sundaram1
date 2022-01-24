@@ -21,7 +21,8 @@ def alert_in_celcius(farenheit):
 
 
 alert_in_celcius(400.5)
-alert_in_celcius(303.6)
 assert(alert_failure_count == 0)
+alert_in_celcius(303.6)
+assert(alert_failure_count != 0)
 print(f'{alert_failure_count} alerts failed.')
 print('All is well (maybe!)')
