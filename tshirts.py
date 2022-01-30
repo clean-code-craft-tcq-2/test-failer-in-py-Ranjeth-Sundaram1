@@ -6,20 +6,28 @@ def GetSizeName(cms:int):
     elif cms >42 and cms <= 46:
         return 'L'
    
-def ValidateSizeNameWithCms(cms: int, size: str):
+def ValidateSizeNamewithCms(cms: int, size: str):
     try:
         assert(GetSizeName(cms) == size)
     except AssertionError:
-         print(f"The entered size({cms}) is not matched with {size}. Please enter the valid size")
+         print(f"The entered size({cms}) is not matched with {size}. Please refer 'Size Reference Manual \n {PrintReferenceManual()}")
+         
 
+def PrintReferenceManual():
+    ''' This will return the cms and size mapping '''
+    return('''
+         Range\t| Size\n
+         35-38\t| S\n
+         39-42\t| M\n
+         43-46\t| L\n
+    ''')
 
-
-ValidateSizeNameWithCms(37, 'S')
-ValidateSizeNameWithCms(40, 'M')
-ValidateSizeNameWithCms(43, 'L')
-ValidateSizeNameWithCms(38, 'S')
-ValidateSizeNameWithCms(42, 'M')
-ValidateSizeNameWithCms(0, 'S')
-ValidateSizeNameWithCms(50, 'L')
+ValidateSizeNamewithCms(37, 'S')
+ValidateSizeNamewithCms(40, 'M')
+ValidateSizeNamewithCms(43, 'L')
+ValidateSizeNamewithCms(38, 'S')
+ValidateSizeNamewithCms(42, 'M')
+ValidateSizeNamewithCms(0, 'S')
+ValidateSizeNamewithCms(50, 'L')
 
 print("All is well (maybe!)\n")
