@@ -10,7 +10,7 @@ def ValidateSizeNamewithCms(cms: int, size: str):
     try:
         assert(GetSizeName(cms) == size)
     except AssertionError:
-         print(f"The entered size({cms}) is not matched with {size}. Please refer 'Size Reference Manual \n {PrintReferenceManual()}")
+         print(f"Assertion error : The entered size({cms}) is not matched with {size}. Please refer 'Size Reference Manual \n {PrintReferenceManual()}")
          
 
 def PrintReferenceManual():
