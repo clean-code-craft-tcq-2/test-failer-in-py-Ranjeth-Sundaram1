@@ -15,13 +15,13 @@ def ValidatePairNumber(pair_number):
     try:
         assert(pair_number>0 and pair_number<(len(major_colors)*(minor_colors)))
     except AssertionError:
-        print(f"The entered pair_number({pair_number}) is not a valid pair_number")
+        print(f"AssertionError: The entered pair_number({pair_number}) is not a valid pair_number")
 
 def ValidateAlignment(pair_number:int, major_color:str,minor_color:str):
     try:
         assert(PrintPairnumberWithColors(pair_number,major_color,minor_color) == "{0:<4}| {1:<10}| {2:<10}".format(pair_number, major_color, minor_color))
     except AssertionError :
-        print (f"Alignment validation for {pair_number} , {major_color}, {minor_color} is failed")
+        print (f"AssertionError: Alignment validation for {pair_number} , {major_color}, {minor_color} is failed")
 
 def PrintAllPairnumberWithColors(pair_number_color_mapping):
     for onePair in (pair_number_color_mapping):
