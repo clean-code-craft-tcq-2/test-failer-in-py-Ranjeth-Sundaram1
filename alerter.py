@@ -10,8 +10,7 @@ def network_alert_stub(celcius):
 def GetFarenheitFromCelcius(farenheit:float)->float:
     return (farenheit - 32) * 5 / 9
 
-def alert_in_celcius(farenheit):
-    celcius = GetFarenheitFromCelcius(farenheit)
+def alert_in_celcius(celcius):
     returnCode = network_alert_stub(celcius)
     if returnCode != 200:
         # non-ok response is not an error! Issues happen in life!
@@ -23,8 +22,14 @@ def alert_in_celcius(farenheit):
     else:
         alert_failure_count = alert_failure_count
 
-alert_in_celcius(400.5)
-alert_in_celcius(303.6)
+def ValidateCode():
+    try:
+        assert(alert_failure_count == 1)
+    except AssertionError:
+        print("AssertionError occured. Please revisit")
+
+alert_in_celcius(GetFarenheitFromCelcius(400.5))
+alert_in_celcius(GetFarenheitFromCelcius(303.6))
 assert(alert_failure_count == 1)
 print(f'{alert_failure_count} alerts failed.')
 print('All is well (maybe!)')
